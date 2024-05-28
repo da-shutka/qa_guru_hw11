@@ -6,7 +6,7 @@ plugins {
 group = 'ru.dpqa'
 version = '1.0-SNAPSHOT'
 
-def allureVersion = "2.21.0",
+def allureVersion = "2.19.0",
     selenideVersion = "7.2.3",
     unitVersion = "5.10.2";
 
@@ -16,6 +16,7 @@ allure {
         version.set(allureVersion)
     }
     adapter {
+        aspectjVersion.set("1.9.22")
         aspectjWeaver.set(true)
         frameworks {
             junit5 {
