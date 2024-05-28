@@ -65,7 +65,7 @@ public class RegistrationPage extends BasePage {
 
     public RegistrationPage setDateOfBirth(List<String> birthDay) {
         calendarInput.click();
-        calendarComponent.setDate(birthDay.getFirst(), birthDay.get(1), birthDay.getLast());
+        calendarComponent.setDate(birthDay.get(0), birthDay.get(1), birthDay.get(2));
         return this;
     }
 

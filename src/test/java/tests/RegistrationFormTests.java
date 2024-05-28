@@ -1,15 +1,19 @@
 package tests;
 
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 import utils.TestData;
 
+@Tag("demoqa_auto")
 public class RegistrationFormTests extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
     TestData testData = new TestData();
 
     @Test
+    @DisplayName("Регистрационная форма. Заполнены все поля")
     void checkRegistrationFormAllFieldsTest() {
         registrationPage.openPage()
                 .setFirstName(testData.firstName)
@@ -33,9 +37,9 @@ public class RegistrationFormTests extends TestBase {
                 .checkResult("Mobile", testData.phoneNumber)
                 .checkResult("Date of Birth", String.format(
                         "%s %s,%s",
-                        testData.birthDay.getFirst(),
+                        testData.birthDay.get(0),
                         testData.birthDay.get(1),
-                        testData.birthDay.getLast()))
+                        testData.birthDay.get(2)))
                 .checkResult("Subjects", testData.subject)
                 .checkResult("Hobbies", testData.hobby)
                 .checkResult("Picture", testData.file)
@@ -44,6 +48,7 @@ public class RegistrationFormTests extends TestBase {
     }
 
     @Test
+    @DisplayName("Регистрационная форма. Заполнены обязательные поля")
     void checkRegistrationFormMandatoryFieldsTest() {
         registrationPage.openPage()
                 .setFirstName(testData.firstName)
@@ -59,12 +64,13 @@ public class RegistrationFormTests extends TestBase {
                 .checkResult("Mobile", testData.phoneNumber)
                 .checkResult("Date of Birth", String.format(
                         "%s %s,%s",
-                        testData.birthDay.getFirst(),
+                        testData.birthDay.get(0),
                         testData.birthDay.get(1),
-                        testData.birthDay.getLast()));
+                        testData.birthDay.get(2)));
     }
 
     @Test
+    @DisplayName("Регистрационная форма. Заполнены дефолтные поля")
     void checkRegistrationFormNegativeTest() {
         registrationPage.openPage().submit();
         registrationPage.checkUnsuccessfulSubmit();
