@@ -113,7 +113,7 @@ public class RegistrationPage extends BasePage {
         return this;
     }
 
-    @Step("Зарегистрироваться")
+    @Step("Нажать Submit")
     public void submit() {
         $("#submit").click();
     }
