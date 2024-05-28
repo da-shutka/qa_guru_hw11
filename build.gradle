@@ -39,7 +39,8 @@ dependencies {
             "org.junit.jupiter:junit-jupiter:$unitVersion",
             "com.codeborne:selenide:$selenideVersion",
             "org.slf4j:slf4j-simple:2.0.13",
-            "com.github.javafaker:javafaker:1.0.2"
+            "com.github.javafaker:javafaker:1.0.2",
+            "io.qameta.allure:allure-selenide:$allureVersion"
     )
 }
 
